@@ -59,8 +59,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # ADDED Enable Bluetooth
+  # ADDED Enable Bluetooth (+ bluez pkg added in system packages)
   services.blueman.enable = true;
+
+  # ADDED System shutdown after 10s
+  systemd.extraConfig = ''
+  DefaultTimeoutStopSec=10s
+'';
+
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -103,7 +109,9 @@
   
   # Install firefox.
   programs.firefox.enable = true;
-  
+ 
+  # ADDED enable bash auto-complete
+  programs.bash.enableCompletion = true;
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
@@ -115,6 +123,8 @@
    neovim
    # terminal file manager
    yazi
+   # terminal image viewer
+   ueberzugpp
    # better terminal
    alacritty
    # even better term em
@@ -126,6 +136,12 @@
    # git
    git
    lazygit
+   # terminal prompt customization
+   starship
+
+
+   # brightness control
+   brightnessctl
   
    # obsidian notes
    obsidian
@@ -135,6 +151,9 @@
 
    # neofetch alt
    fastfetch
+
+   # bluetooth
+   bluez
 
   ###################
    # hyprland packages #
@@ -152,6 +171,7 @@
 
    # notification daemon
    swaynotificationcenter
+   	libnotify
    	
    # app launcher
    wofi
@@ -173,10 +193,10 @@
 
    # gtk themes
    #whitesur-gtk-theme
-   #atelier-heath-gtk-theme
+   atelier-heath-gtk-theme
 
    # cursor themes
-   #phinger-cursors
+   phinger-cursors
 
 
 
@@ -189,8 +209,10 @@
   fonts.packages = with pkgs; [
   	
 	font-awesome
-  	# Add other fonts if needed
-  	
+  	inter
+	roboto-mono
+	nerd-fonts.monoid
+	jetbrains-mono
 	];
 
 
