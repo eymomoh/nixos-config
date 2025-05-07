@@ -89,7 +89,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.eyanm = {
     isNormalUser = true;
-    description = "Eyan Momoh";
+    description = "illest chiller ever";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
@@ -193,7 +193,7 @@
 
    # gtk themes
    #whitesur-gtk-theme
-   atelier-heath-gtk-theme
+   #atelier-heath-gtk-theme
 
    # cursor themes
    phinger-cursors

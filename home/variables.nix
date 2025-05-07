@@ -39,6 +39,11 @@ in {
       type = lib.types.str;
       default = userSettings.homeDirectory;
     };
+
+    homeStateVersion = lib.mkOption {
+	type = lib.types.str;
+	default = userSettings.homeStateVersion;
+    };
   };
 
   config = userSettings;

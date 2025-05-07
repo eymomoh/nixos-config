@@ -10,11 +10,14 @@
 
   home = {
     username = "${config.user}";
-    homeDirectory = ${config.homeDirectory};
+    homeDirectory = config.homeDirectory;
     stateVersion = "${config.homeStateVersion}";
 	};
 
   programs = {
+    home-manager = {
+      enable = true;
+    };
     git = {
       enable = true;
       userName = "${config.gitUserName}";
@@ -31,7 +34,7 @@
     bash = {
       enable = true;
       shellAliases = {
-	nix-update = "sudo nixos-rebuild switch --flake ./etc/nixos" #TODO make this reusable
+	nix-update = "sudo nixos-rebuild switch --flake ./etc/nixos"; #TODO make this reusable
       };
     };
 
