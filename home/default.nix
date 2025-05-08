@@ -9,9 +9,9 @@
     ];
 
   home = {
-    username = "${mySettings.user}";
-    homeDirectory = "${homeDirectory}";
-    stateVersion = "${homeStateVersion}";
+    username = config.user;
+    homeDirectory = config.homeDirectory;
+    stateVersion = config.homeStateVersion;
 	};
 
   programs = {
@@ -20,8 +20,8 @@
     };
     git = {
       enable = true;
-      userName = "${gitUsername}";
-      userEmail = "${gitEmail}";
+      userName = config.gitUsername;
+      userEmail = config.gitEmail;
       aliases = {
 	st = "status";
 	# add other aliases here
@@ -34,7 +34,7 @@
     bash = {
       enable = true;
       shellAliases = {
-	nix-update = "sudo nixos-rebuild switch --flake ./etc/nixos"; #TODO make this reusable
+	nix-r = "sudo nixos-rebuild switch --flake /etc/nixos"; #TODO make this reusable
       };
     };
 

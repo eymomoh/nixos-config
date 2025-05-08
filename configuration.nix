@@ -61,6 +61,7 @@
 
   # ADDED Enable Bluetooth (+ bluez pkg added in system packages)
   services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
 
   # ADDED System shutdown after 10s
   systemd.extraConfig = ''
@@ -127,6 +128,7 @@
    ueberzugpp
    # better terminal
    alacritty
+   kitty
    # even better term em
    ghostty
    # hardware config info

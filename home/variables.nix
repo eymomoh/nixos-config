@@ -1,24 +1,23 @@
 { config, lib, ... }:
-{
-let
-  # Define your variables here
-  userSettings = {
-    user = "eyanm"; # set your user's name
-    host = "nixos"; # set your system hostname
-    gitUsername = "eyanm"; # set your git username
-    gitEmail = "enmomoh@gmail.com"; # set your git email
-    homeDirectory = "/home/eyanm"; # set your home directory
-    homeStateVersion = "24.11"; # the version of nixOS at the time home-manager was first written
-  };
 
-in {
+let
+  userSettings = {
+    user = "eyanm";
+    host = "nixos";
+    gitUsername = "eyanm";
+    gitEmail = "enmomoh@gmail.com";
+    homeDirectory = "/home/eyanm";
+    homeStateVersion = "24.11";
+  };
+in
+{
   options = {
     user = lib.mkOption {
       type = lib.types.str;
       default = userSettings.user;
       description = "Username";
     };
-    
+
     host = lib.mkOption {
       type = lib.types.str;
       default = userSettings.host;
@@ -27,25 +26,29 @@ in {
 
     gitUsername = lib.mkOption {
       type = lib.types.str;
-      default = userSettings.gitUserame;
+      default = userSettings.gitUsername;
+      description = "Git username";
     };
 
     gitEmail = lib.mkOption {
       type = lib.types.str;
       default = userSettings.gitEmail;
+      description = "Git email";
     };
 
     homeDirectory = lib.mkOption {
       type = lib.types.str;
       default = userSettings.homeDirectory;
+      description = "Home directory path";
     };
 
     homeStateVersion = lib.mkOption {
-	type = lib.types.str;
-	default = userSettings.homeStateVersion;
+      type = lib.types.str;
+      default = userSettings.homeStateVersion;
+      description = "Home Manager state version";
     };
   };
 
-  mySettings = userSettings;
-};
+  config = userSettings;
 }
+
