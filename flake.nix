@@ -10,27 +10,43 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  
   let
-    system = "x86_64-linux"; # set system architecture
-   # user = "eyanm"; # set username here
-   # host = "nixos"; # set system hostname here
     pkgs = nixpkgs.legacyPackages.${system};
+    system = "x86_64-linux";
+    # GLOBAL CONFIG VARIABLES
+    mySettings = {
+      system = "x86_64-linux"; # system architecture
+      user = "eyanm"; # username
+      host = "nixos"; # system hostname
+      gitUsername = "eyanm";
+      gitEmail = "enmomoh@gmail.com";
+      homeDirectory = "/home/eyanm";
+      homeStateVersion = "24.11";
+      
+      };
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
 	inherit system;
-	specialArgs = { inherit inputs; };
+	specialArgs = { 
+	  # pass config variables declared above
+	  inherit inputs;
+	  inherit mySettings;
+
+	  };
 	modules = [
 	  ./configuration.nix
 	  home-manager.nixosModules.home-manager 
-	  {
+	    {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users = {
 	      "eyanm" = import ./home/default.nix;
-	    };
-	  }
-	];
+	      };
+	    }
+	  ];
+
       };
     };
 

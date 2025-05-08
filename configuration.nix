@@ -138,6 +138,8 @@
    lazygit
    # terminal prompt customization
    starship
+   # unzip
+   unzip
 
 
    # brightness control
@@ -154,6 +156,7 @@
 
    # bluetooth
    bluez
+   blueman
 
   ###################
    # hyprland packages #
@@ -213,6 +216,7 @@
 	roboto-mono
 	nerd-fonts.monoid
 	jetbrains-mono
+	nerd-fonts.jetbrains-mono
 	];
 
 
