@@ -15,16 +15,16 @@
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
     # GLOBAL CONFIG VARIABLES
-    mySettings = {
-      system = "x86_64-linux"; # system architecture
-      user = "eyanm"; # username
-      host = "nixos"; # system hostname
-      gitUsername = "eyanm";
-      gitEmail = "enmomoh@gmail.com";
-      homeDirectory = "/home/eyanm";
-      homeStateVersion = "24.11";
+  #  mySettings = {
+   #   system = "x86_64-linux"; # system architecture
+   #   user = "eyanm"; # username
+   #   host = "nixos"; # system hostname
+   #   gitUsername = "eyanm";
+   #   gitEmail = "enmomoh@gmail.com";
+   #   homeDirectory = "/home/eyanm";
+   #   homeStateVersion = "24.11";
       
-      };
+   #  };
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
@@ -32,7 +32,6 @@
 	specialArgs = { 
 	  # pass config variables declared above
 	  inherit inputs;
-	  inherit mySettings;
 
 	  };
 	modules = [
@@ -41,9 +40,7 @@
 	    {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users = {
-	      "eyanm" = import ./home/default.nix;
-	      };
+            home-manager.users.eyanm = import ./home/default.nix;	    
 	    }
 	  ];
 

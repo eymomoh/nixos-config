@@ -1,16 +1,17 @@
-{ config, pkgs, mySettings, ... }@args:
+{ config, pkgs, ... }@args:
 
 {
   imports = [
     # Add more module imports here
     ./packages.nix
+    ./variables.nix
 
     ];
 
   home = {
     username = "${mySettings.user}";
-    homeDirectory = "${mySettings.homeDirectory}";
-    stateVersion = "${mySettings.homeStateVersion}";
+    homeDirectory = "${homeDirectory}";
+    stateVersion = "${homeStateVersion}";
 	};
 
   programs = {
@@ -19,8 +20,8 @@
     };
     git = {
       enable = true;
-      userName = "${mySettings.gitUsername}";
-      userEmail = "${mySettings.gitEmail}";
+      userName = "${gitUsername}";
+      userEmail = "${gitEmail}";
       aliases = {
 	st = "status";
 	# add other aliases here
