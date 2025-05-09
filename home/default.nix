@@ -36,6 +36,10 @@
       shellAliases = {
 	nix-r = "sudo nixos-rebuild switch --flake /etc/nixos"; #TODO make this reusable
       };
+      bashrcExtra = '' 
+	eval "$(starship init bash)"
+
+      ''; # bashrcExtra adds to bashrc file
     };
 
 
