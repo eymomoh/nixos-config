@@ -5,7 +5,7 @@
     # Add more module imports here
     ./packages.nix
     ./variables.nix
-
+    ./modules/hypr/hyprland.nix
     ];
 
   home = {
