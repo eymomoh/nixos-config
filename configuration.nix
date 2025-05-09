@@ -117,7 +117,7 @@
   programs.firefox.enable = true;
  
   # ADDED enable bash auto-complete
-  programs.bash.enableCompletion = true;
+  # programs.bash.completion.enable = true;
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
