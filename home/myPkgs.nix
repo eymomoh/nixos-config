@@ -5,6 +5,7 @@
     pywal
     hyprpicker
     hyprsome
+    pywalfox-native
 
      # Add more packages here
   ];

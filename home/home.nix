@@ -3,9 +3,9 @@
 {
   imports = [
     # Add more module imports here
-    ./packages.nix
-    ./variables.nix
-    ./modules/hypr/myHyprland.nix
+    ./myPkgs.nix
+    ./myVars.nix
+    ./myModules/hypr/myHyprland.nix
     ];
 
   home = {
@@ -26,6 +26,8 @@
       userEmail = config.gitEmail;
       aliases = {
 	st = "status";
+	a = "add";
+	c = "commit -m";
 	# add other aliases here
 	};
       extraConfig = {
@@ -37,6 +39,7 @@
       enable = true;
       shellAliases = {
 	nix-r = "sudo nixos-rebuild switch --flake /etc/nixos"; #TODO make this reusable
+	sy = "sudo yazi";
       };
       bashrcExtra = '' 
 	eval "$(starship init bash)"

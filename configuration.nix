@@ -91,12 +91,17 @@
   users.users.eyanm = {
     isNormalUser = true;
     description = "illest chiller ever";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
     packages = with pkgs; [
     #  thunderbird
     ];
   };
 
+  # Configure SUDO behavior
+  security.sudo = {
+    enable = true;
+    wheelNeedsPassword = false; # users with 'wheel' don't need sudo
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
