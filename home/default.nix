@@ -5,7 +5,7 @@
     # Add more module imports here
     ./packages.nix
     ./variables.nix
-    ./modules/hypr/hyprland.nix
+    ./modules/hypr/myHyprland.nix
     ];
 
   home = {
@@ -20,8 +20,8 @@
     };
     git = {
       enable = true;
-      userName = config.gitUsername;
-      userEmail = config.gitEmail;
+      user.name = config.gitUsername;
+      user.email = config.gitEmail;
       aliases = {
 	st = "status";
 	# add other aliases here
