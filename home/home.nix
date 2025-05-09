@@ -36,7 +36,7 @@
       };
     bash = {
       enable = true;
-      completion.enable = true;
+      # completion.enable = true;
       shellAliases = {
 	nix-r = "sudo nixos-rebuild switch --flake /etc/nixos"; #TODO make this reusable
 	sy = "sudo yazi";
