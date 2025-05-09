@@ -14,14 +14,16 @@
     stateVersion = config.homeStateVersion;
 	};
 
+
+
   programs = {
     home-manager = {
       enable = true;
-    };
+          };
     git = {
       enable = true;
-      user.name = config.gitUsername;
-      user.email = config.gitEmail;
+      userName = config.gitUsername;
+      userEmail = config.gitEmail;
       aliases = {
 	st = "status";
 	# add other aliases here

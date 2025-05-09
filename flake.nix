@@ -40,7 +40,8 @@
 	    {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.eyanm = import ./home/default.nix;	    
+            home-manager.users.eyanm = import ./home/default.nix;
+            home-manager.backupFileExtension = "backup";   # Automatically backup conflicting files
 	    }
 	  ];
 
