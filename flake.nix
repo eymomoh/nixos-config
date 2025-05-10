@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, config, ... }@inputs: 
   
   let
     pkgs = nixpkgs.legacyPackages.${system};
@@ -17,8 +17,8 @@
     # GLOBAL CONFIG VARIABLES
   #  mySettings = {
    #   system = "x86_64-linux"; # system architecture
-   #   user = "eyanm"; # username
-   #   host = "nixos"; # system hostname
+    user = "eyanm"; # username
+    host = "nixos"; # system hostname
    #   gitUsername = "eyanm";
    #   gitEmail = "enmomoh@gmail.com";
    #   homeDirectory = "/home/eyanm";
@@ -36,6 +36,7 @@
 	  };
 	modules = [
 	  ./configuration.nix
+	  (import ./home/helios/heliosVars.nix)
 	  home-manager.nixosModules.home-manager 
 	    {
             home-manager.useGlobalPkgs = true;
