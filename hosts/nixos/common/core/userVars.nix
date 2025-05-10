@@ -2,8 +2,8 @@
 
 let
   userSettings = {
-    user = "eyanm";
-    host = "nixos";
+    user = "helios";
+    host = "sol";
     gitUsername = "eyanm";
     gitEmail = "enmomoh@gmail.com";
     homeDirectory = "/home/eyanm";
