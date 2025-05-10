@@ -4,7 +4,7 @@
   imports = [
     # Add more module imports here
     ./myPkgs.nix
-    ./heliosVars.nix
+    ../../hosts/nixos/common/core/userVars.nix
     ./common/optional/hypr/myHyprland.nix
     ];
 

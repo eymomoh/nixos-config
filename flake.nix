@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, config, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
   
   let
     pkgs = nixpkgs.legacyPackages.${system};
@@ -17,8 +17,8 @@
     # GLOBAL CONFIG VARIABLES
   #  mySettings = {
    #   system = "x86_64-linux"; # system architecture
-    user = "eyanm"; # username
-    host = "nixos"; # system hostname
+   # user = "helios"; # username
+   # host = "sol"; # system hostname
    #   gitUsername = "eyanm";
    #   gitEmail = "enmomoh@gmail.com";
    #   homeDirectory = "/home/eyanm";
@@ -27,7 +27,7 @@
    #  };
   in {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      sol = nixpkgs.lib.nixosSystem {
 	inherit system;
 	specialArgs = { 
 	  # pass config variables declared above
@@ -36,12 +36,11 @@
 	  };
 	modules = [
 	  ./configuration.nix
-	  (import ./home/helios/heliosVars.nix)
 	  home-manager.nixosModules.home-manager 
 	    {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.eyanm = import ./home/helios/heliosHome.nix;
+            home-manager.users.helios = import ./home/helios/heliosHome.nix;
             home-manager.backupFileExtension = "backup";   # Automatically backup conflicting files
 	    }
 	  ];
