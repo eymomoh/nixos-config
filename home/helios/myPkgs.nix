@@ -6,6 +6,7 @@
     hyprpicker
     hyprsome
     pywalfox-native
+    zed-editor
      # Add more packages here
   ];
   

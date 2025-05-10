@@ -1,0 +1,5 @@
+===== TODO List for NixOS =====
+
+[] migrate hypr config to home manager module
+[] refactor everything into new structure
+[] 
