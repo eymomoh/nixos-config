@@ -2,4 +2,9 @@
 
 [] migrate hypr config to home manager module
 [] refactor everything into new structure
-[] 
+[] fix pywalfox
+[] make hyprbar thinner
+[] switch to rofi
+[] explore removing gnome login
+	L [] or customize
+[] sleep
