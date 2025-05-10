@@ -92,6 +92,7 @@
     isNormalUser = true;
     description = "illest chiller ever";
     extraGroups = [ "wheel" ];
+    home = "/home/helios";
     packages = with pkgs; [
     #  thunderbird
     ];

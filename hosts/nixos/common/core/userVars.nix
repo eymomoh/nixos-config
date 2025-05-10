@@ -6,7 +6,7 @@ let
     host = "sol";
     gitUsername = "eyanm";
     gitEmail = "enmomoh@gmail.com";
-    homeDirectory = "/home/eyanm";
+    homeDirectory = "/home/${userSettings.user}";
     homeStateVersion = "24.11";
   };
 in
