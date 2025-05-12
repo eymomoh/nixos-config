@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprpanel = {
+      url = "github:jas-singhfsu/hyprpanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
@@ -14,37 +18,26 @@
   let
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
-    # GLOBAL CONFIG VARIABLES
-  #  mySettings = {
-   #   system = "x86_64-linux"; # system architecture
-   # user = "helios"; # username
-   # host = "sol"; # system hostname
-   #   gitUsername = "eyanm";
-   #   gitEmail = "enmomoh@gmail.com";
-   #   homeDirectory = "/home/eyanm";
-   #   homeStateVersion = "24.11";
-      
-   #  };
   in {
     nixosConfigurations = {
       sol = nixpkgs.lib.nixosSystem {
+	
 	inherit system;
+
 	specialArgs = { 
-	  # pass config variables declared above
 	  inherit inputs;
-
-	  };
-	modules = [
+	};
+        modules = [
 	  ./configuration.nix
-	  home-manager.nixosModules.home-manager 
-	    {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.helios = import ./home/helios/heliosHome.nix;
-            home-manager.backupFileExtension = "backup";   # Automatically backup conflicting files
-	    }
-	  ];
-
+	 # home-manager.nixosModules.home-manager 
+	  #  {
+           # home-manager.useGlobalPkgs = true;
+           # home-manager.useUserPackages = true;
+           # home-manager.users.helios = import ./home/helios/heliosHome.nix;
+           # home-manager.backupFileExtension = "backup";   # Automatically backup conflicting files
+	    #}
+	  ./home-manager.nix
+	];
       };
     };
 
