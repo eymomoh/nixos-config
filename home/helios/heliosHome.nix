@@ -5,7 +5,7 @@
     # Add more module imports here
     ./myPkgs.nix
     ../../hosts/nixos/common/core/userVars.nix
-    ./common/optional/hypr/myHyprland.nix
+    ./common/optional/hypr/hyprland.nix
     ];
 
   home = {
@@ -38,7 +38,7 @@
       enable = true;
       # completion.enable = true; <- doesnt work but i want it to :-)
       shellAliases = {
-	nix-r = "sudo nixos-rebuild switch --flake /etc/nixos"; #TODO make this reusable
+	nr = "sudo nixos-rebuild switch --flake /etc/nixos"; #TODO make this reusable
 	sy = "sudo yazi";
 	ff = "fastfetch";
 	nixos = "cd /etc/nixos"; # nix config path
@@ -50,6 +50,8 @@
       };
       bashrcExtra = '' 
 	eval "$(starship init bash)"
+	export VISUAL=neovim
+	export EDITOR="$VISUAL"
 
       ''; # bashrcExtra adds to bashrc file
     };

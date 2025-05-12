@@ -8,3 +8,5 @@
 [] explore removing gnome login
 	L [] or customize
 [] sleep
+[] gui img viewer
+	L [] & vlc

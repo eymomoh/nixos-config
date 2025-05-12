@@ -70,7 +70,6 @@
 
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -128,6 +127,8 @@
 
    # terminal-like text editor
    neovim
+   # code editor
+   zed-editor
    # terminal file manager
    yazi
    # terminal image viewer

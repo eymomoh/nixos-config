@@ -2,7 +2,7 @@
 
 let
   # Load your custom config file from disk
-  myHyprconf = builtins.readFile ./myHyprconf.conf;
+  hyprconf = builtins.readFile ./hyprconf.conf;
 in {
   home.packages = with pkgs; [
     hyprland
@@ -11,5 +11,5 @@ in {
   xdg.enable = true;
 
   # Map it to ~/.config/hypr/hyprland.conf
-  xdg.configFile."hypr/hyprland.conf".text = myHyprconf;
+  xdg.configFile."hypr/hyprland.conf".text = hyprconf;
 }
