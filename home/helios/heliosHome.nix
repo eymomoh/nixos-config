@@ -15,7 +15,6 @@
     username = config.user;
     homeDirectory = config.homeDirectory;
     stateVersion = config.homeStateVersion;
-    file.backupFileExtension = "backup";
 	};
 
 

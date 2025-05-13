@@ -1,13 +1,16 @@
 # *.nix
-{ inputs, ... }:
-{
-  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+{ config, pkgs, ... }:
 
-  programs.hyprpanel = {
+let
+  # Load your custom config file from disk
+  hyprpanelConf = builtins.readFile ./hyprpanelConf.conf;
+in {
+  home.packages = with pkgs; [
+    hyprpanel
+  ];
 
-    # Enable the module.
-    # Default: false
-    enable = true;
+  xdg.enable = true;
 
-    };
+  # Map it to ~/.config/hypr/hyprland.conf
+  xdg.configFile."hyprpanel/config.json".text = hyprpanelConf;
 }
