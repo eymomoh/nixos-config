@@ -5,6 +5,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
@@ -12,5 +13,8 @@
       helios = import ./home/helios/heliosHome.nix;
     };
     backupFileExtension = "backup";
+    useGlobalPkgs = true;
+    useUserPackages = true;
+
   };
 }

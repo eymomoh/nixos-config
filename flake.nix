@@ -13,9 +13,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, hyprpanel, ... }@inputs: 
   
   let
+    inherit (self) outputs; # TODO wip
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
   in {
@@ -25,10 +26,11 @@
 	inherit system;
 
 	specialArgs = { 
-	  inherit inputs;
+	  inherit inputs outputs;
 	};
         modules = [
 	  ./configuration.nix
+
 	 # home-manager.nixosModules.home-manager 
 	  #  {
            # home-manager.useGlobalPkgs = true;
@@ -36,7 +38,6 @@
            # home-manager.users.helios = import ./home/helios/heliosHome.nix;
            # home-manager.backupFileExtension = "backup";   # Automatically backup conflicting files
 	    #}
-	  ./home-manager.nix
 	];
       };
     };
