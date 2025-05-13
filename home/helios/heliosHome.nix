@@ -6,7 +6,7 @@
     ./myPkgs.nix
     ../../hosts/nixos/common/core/userVars.nix
     ./common/optional/hypr/hyprland.nix
-    ./common/optional/hypr/hyprpanelConfig.nix
+    ./common/optional/hypr/hyprpanel.nix
 
 
     ];
@@ -15,6 +15,7 @@
     username = config.user;
     homeDirectory = config.homeDirectory;
     stateVersion = config.homeStateVersion;
+    file.backupFileExtension = "backup";
 	};
 
 

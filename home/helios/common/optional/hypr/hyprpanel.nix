@@ -9,4 +9,5 @@
     # Default: false
     enable = true;
 
-    }
+    };
+}
