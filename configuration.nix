@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./nvidia.nix
-      ./home-manager.nix
+
     ];
 
   # Bootloader.
@@ -150,6 +150,8 @@
    starship
    # unzip
    unzip
+   # hardware monitoring
+   btop
 
 
    # brightness control

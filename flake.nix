@@ -31,13 +31,15 @@
         modules = [
 	  ./configuration.nix
 
-	 # home-manager.nixosModules.home-manager 
-	  #  {
-           # home-manager.useGlobalPkgs = true;
-           # home-manager.useUserPackages = true;
-           # home-manager.users.helios = import ./home/helios/heliosHome.nix;
-           # home-manager.backupFileExtension = "backup";   # Automatically backup conflicting files
-	    #}
+	  home-manager.nixosModules.home-manager 
+	    {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.helios = import ./home/helios/heliosHome.nix;
+            home-manager.backupFileExtension = "backup";   # Automatically backup conflicting files
+	    home-manager.extraSpecialArgs = { inherit inputs; };
+	    nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+	    }
 	];
       };
     };

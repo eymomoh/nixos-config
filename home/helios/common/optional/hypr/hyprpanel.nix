@@ -8,7 +8,5 @@
     # Enable the module.
     # Default: false
     enable = true;
-    overlay.enable = true;
 
-     };
-}
+    }
