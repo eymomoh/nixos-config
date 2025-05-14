@@ -7,7 +7,7 @@
     ../../hosts/nixos/common/core/userVars.nix
     ./common/optional/hypr/hyprland.nix
     ./common/optional/hypr/hyprpanel.nix
-
+    ./common/optional/sunshine.nix
 
     ];
 

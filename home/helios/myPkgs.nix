@@ -7,6 +7,7 @@
     hyprsome
     pywalfox-native
     pavucontrol
+    sunshine
      # Add more packages here
   ];
   
